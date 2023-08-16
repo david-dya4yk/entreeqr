@@ -1,0 +1,28 @@
+schema: http://localhost:3001/graphql
+
+documents: src/**/*.gql
+# config:
+# Работа с запросами ведется через react-hooks | default -> true
+# withHooks: true
+# Из типов для схемы исключается служебное поле __typename | default -> false
+# skipTypename: false
+# Все типы из схемы и запросов - иммутабельны
+# immutableTypes: true
+# Типы генерируются на лету, без Pick - для чистоты информации по типу | default -> true
+# preResolveTypes: true
+generates:
+  src/apollo-helpers.ts:
+    plugins:
+      - typescript-apollo-client-helpers
+  src/models.gen.ts:
+    plugins:
+      - typescript
+  src/:
+    preset: near-operation-file
+    # Типы схемы и запросы - разделены
+    presetConfig:
+      extension: .gen.ts
+      baseTypesPath: models.gen.ts
+    plugins:
+      - typescript-operations
+      - typescript-react-apollo

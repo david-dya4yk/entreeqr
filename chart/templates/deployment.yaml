@@ -1,0 +1,33 @@
+{{- $app_name := (include "helpers.name" .) -}}
+{{- $version := .Release.Revision | quote -}}
+{{- $docker_image := list .Values.image.repository .Values.image.tag | compact | join ":" -}}
+{{- $port := .Values.env.PORT -}}
+
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  namespace: {{ include "helpers.ns" . }}
+  name: {{ $app_name }}
+spec:
+  replicas: {{ .Values.replicaCount }}
+  selector:
+    matchLabels:
+      app: {{ $app_name }}
+  template:
+    metadata:
+      labels:
+        app: {{ $app_name }}
+        version: {{ $version }}
+    spec:
+      imagePullSecrets:
+        - name: entreeqr-ghcr-secret
+      nodeSelector:
+        {{ toYaml .Values.nodeSelector | nindent 8 }}
+      containers:
+        - name: {{ $app_name }}
+          image: {{ $docker_image }}
+          imagePullPolicy: {{ .Values.image.pullPolicy }}
+          resources:
+            {{ toYaml .Values.resources | nindent 12 }}
+          ports:
+            - containerPort: {{ $port }}

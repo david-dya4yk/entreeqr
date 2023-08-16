@@ -1,0 +1,7 @@
+apiVersion: v2
+name: site-frontend
+description: A Helm chart for site-frontend
+version: 0.1.0
+appVersion: 1.0.0
+
+# Set appVersion via `helm package ${tag} .`

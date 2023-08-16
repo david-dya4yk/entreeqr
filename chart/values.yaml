@@ -1,0 +1,23 @@
+replicaCount: 2
+
+image:
+  tag:
+  repository: ghcr.io/entreeqr/site-frontend
+  pullPolicy: Always
+
+resources:
+  requests:
+    memory: 256Mi
+    cpu: 200m
+  limits:
+    memory: 500Mi
+    cpu: 200m
+
+nodeSelector: {}
+
+env:
+  PORT:
+  HOST:
+  NODE_ENV:
+
+registries: []

@@ -1,0 +1,13 @@
+<svg
+  xmlns="http://www.w3.org/2000/svg"
+  fill="none"
+  viewBox="0 0 16 16"
+>
+  <path
+    fill="currentColor"
+    stroke="currentColor"
+    stroke-linecap="round"
+    stroke-linejoin="round"
+    d="M6.667 12V4A1.333 1.333 0 0 0 4 4v8a1.333 1.333 0 1 0 2.667 0ZM12 12V4a1.333 1.333 0 0 0-2.666 0v8a1.333 1.333 0 1 0 2.667 0Z"
+  />
+</svg>

@@ -1,0 +1,35 @@
+mutation RegisterOwner($input: RegisterOwnerInput!) {
+  auth {
+    registerOwner(input: $input) {
+      id
+      __typename
+    }
+  }
+}
+
+mutation LoginOwner($input: LoginOwnerInput!) {
+  auth {
+    loginOwner(input: $input) {
+      accessToken
+      __typename
+    }
+  }
+}
+
+mutation RefreshOwner {
+  auth {
+    refreshOwner {
+      accessToken
+      __typename
+    }
+  }
+}
+
+query GetCurrentOwner {
+  auth {
+    me {
+      ...Owner
+      __typename
+    }
+  }
+}

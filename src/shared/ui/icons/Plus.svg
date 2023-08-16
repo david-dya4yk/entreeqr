@@ -1,0 +1,12 @@
+<svg
+  fill="none"
+  viewBox="0 0 20 20"
+>
+  <path
+    stroke="currentColor"
+    stroke-linecap="round"
+    stroke-linejoin="round"
+    stroke-width="2"
+    d="M10 4.167v11.666M4.166 10h11.667"
+  />
+</svg>

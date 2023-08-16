@@ -1,0 +1,21 @@
+mutation UpdateOwner($input: UpdateOwnerInput!) {
+  users {
+    updateOwner(input: $input) {
+      ...Owner
+      __typename
+    }
+  }
+}
+
+fragment Owner on User {
+  id
+  email
+  phone
+  firstName
+  lastName
+  emailVerified
+  invitedCompanies {
+    ...Company
+    __typename
+  }
+}

@@ -1,0 +1,15 @@
+kind: Service
+apiVersion: v1
+metadata:
+  namespace: {{ include "helpers.ns" . }}
+  name: {{ include "helpers.name" . }}
+  labels:
+    app: {{ include "helpers.name" . }}
+    service: {{ include "helpers.name" . }}
+spec:
+  selector:
+    app: {{ include "helpers.name" . }}
+  ports:
+    - protocol: TCP
+      port: 80
+      targetPort: {{ .Values.env.PORT }}

@@ -1,0 +1,29 @@
+mutation CreateCompany($input: CreateCompanyInput!) {
+  companies {
+    create(input: $input) {
+      ...Company
+      __typename
+    }
+  }
+}
+
+query GetOwnerCompanies {
+  companies {
+    owned {
+      ...Company
+      __typename
+    }
+  }
+}
+
+fragment Company on Company {
+  id
+  name
+  logo {
+    small
+    __typename
+  }
+  domain
+  ownerId
+  description
+}
